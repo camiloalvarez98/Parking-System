@@ -1,27 +1,17 @@
 import React from 'react'
 import { TableContainer,Table,TableHead,TableBody,TableRow,TableCell,Paper,Button} from '@mui/material'
 import Box from '@mui/material/Box';
-//import { makeStyles } from '@material-ui/core/styles';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
 import AutorenewIcon from '@mui/icons-material/Autorenew';
 
-/*
-const useStyles = makeStyles({
-    titulo: {
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center"
-    }
-})
-*/
-export default function Tabla() {
-    //const classes = useStyles();
+
+export default function TablaDisponibles() {
     const [data, setData] = useState([]);
-    const [clockState, setClockState] = useState();
+    //const [clockState, setClockState] = useState();
     const tab = '\u00A0' 
-    
+    const hora = new Date().toLocaleTimeString();
 
     const getEstacionamientos = async() =>{
         await axios.get('https://sistembebidos.herokuapp.com/router/disponiblecuadrante')
@@ -35,13 +25,15 @@ export default function Tabla() {
         getEstacionamientos();
     },[])
 
+    /*    
     useEffect(() => {
         setInterval(() => {
             const date = new Date();
             setClockState(date.toLocaleTimeString());
         }, 1000);
     }, [])
-    
+    */
+
     return (
         <div align  = 'center'>
             <br/>
@@ -62,9 +54,10 @@ export default function Tabla() {
             >
                 <h2 
                 >
-                    Espacios disponibles en tiempo real: {clockState}
+                    (Última actualizacion: {hora})
                     {tab}{tab}<Button onClick={()=> { window.location.reload(false) }} ><AutorenewIcon/></Button>
                 </h2>
+                <h2>Espacios disponibles: </h2>
                 <TableContainer component={Paper}>
                     <Table>
                         <TableHead>
