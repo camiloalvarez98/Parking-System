@@ -9,4 +9,5 @@ export {default as GraficoHawai} from './GraficoHawai';
 export {default as GraficoCanchas} from './GraficoCanchas';
 export {default as Reporte} from './Reporte';
 export {default as Graficos} from './Graficos';
-
+export {default as Mapa} from './Mapa';
+export {default as Secciones} from './Secciones';
