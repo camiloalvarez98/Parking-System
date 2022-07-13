@@ -1,12 +1,12 @@
 import React from 'react';
-import { Barra, TablaDisponibles, Grafico, Reporte} from '../../Components';
+import { Barra, TablaDisponibles, GraficoCS, Reporte,Graficos} from '../../Components';
 
 export default function Principal(){
     return (
         <div>
             <Barra/>
             <TablaDisponibles/>
-            <Grafico/>
+            <Graficos/>
             <Reporte/>
         </div>
     )
